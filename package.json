@@ -4,6 +4,10 @@
 	"displayName": "",
 	"description": "create vue file faster",
 	"version": "0.0.1",
+	"repository": {
+		"type" : "git",
+		"url" : "https://github.com/yuchengtian/vemplate"
+	},
 	"engines": {
 		"vscode": "^1.66.0"
 	},
