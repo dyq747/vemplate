@@ -1,8 +1,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-const fs = require('fs');
-const config = require('./src/index')
+const fs = require('fs')
+const templates = require('./template')
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -14,20 +14,47 @@ function activate(context) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vemplate" is now active!');
+	console.log('Congratulations, your extension "template" is now active!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('vue.template', function (args) {
+	let disposable = vscode.commands.registerCommand('template.vue', async function (args) {
 		// The code you place here will be executed every time your command is executed
-		useExtension(args)
-			.then(() => {
-				// Display a message box to the user
-				// vscode.window.showInformationMessage('成功创建 vue 模板文件');
-			}).catch((error) => {
-				new Error(error)
+
+		try {
+			const fileName = await vscode.window.showInputBox({
+				placeHolder: '请输入 vue 文件名称'
 			})
+
+			const selectedPath = args.fsPath
+			const newFilePath = `${selectedPath}/${fileName}.vue`
+
+			if (fs.existsSync(newFilePath)) {
+				vscode.window.showErrorMessage(`该目录下已存在 ${fileName}.vue 文件`)
+				return
+			}
+
+			const templateName = await vscode.window.showQuickPick(
+				Object.keys(templates),
+				{
+					canPickMany: false,
+					placeHolder: '请选择 vue 模板'
+				}
+			)
+
+			if (!fs.existsSync(newFilePath)) {
+				fs.writeFileSync(newFilePath, templates[templateName])
+				let doc = await vscode.workspace.openTextDocument(vscode.Uri.file(newFilePath))
+				await vscode.window.showTextDocument(doc)
+			} else {
+				vscode.window.showErrorMessage(`该目录下已存在 ${fileName}.vue 文件`)
+				return
+			}
+		} catch(error) {
+			new Error(error)
+      return
+		}
 	});
 
 	context.subscriptions.push(disposable);
@@ -35,30 +62,6 @@ function activate(context) {
 
 // this method is called when your extension is deactivated
 function deactivate() {}
-
-function useExtension(args) {
-	return new Promise((resolve, reject) => {
-		try {
-			if(!vscode.workspace.rootPath) {
-				vscode.window.showErrorMessage('请先打开一个工作区！'),
-				reject('')
-				return
-			}
-			
-			let indexjsPath =  `${args.fsPath}/index.vue`
-			if (fs.existsSync(indexjsPath)) {
-				indexjsPath = `${args.fsPath}/index_new.vue`
-			}
-
-			fs.writeFileSync(indexjsPath, config.template);
-			vscode.window.showTextDocument(vscode.Uri.file(indexjsPath))
-			
-			resolve(indexjsPath)
-		} catch(error) {
-			reject(error)
-		}
-	})
-}
 
 module.exports = {
 	activate,
