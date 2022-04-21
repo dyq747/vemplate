@@ -16,21 +16,22 @@
 
 Windows: C:\Users\你的用户名\\.vscode\extensions\bbwhunter.vemplate-x.x.x
 
-Mac: User/你的用户名/.vscode/extensions/bbwhunter.vemplate-x.x.x
-
-## 潜在问题
-
-未在 macOS 测试，可能存在创建文件失败的问题。
+Mac: Users/你的用户名/.vscode/extensions/bbwhunter.vemplate-x.x.x
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+Vemplate Release Notes
 
 ### 0.0.1
 
-Initial release of Vemplate
+* Initial release of Vemplate
 
 ### 0.0.2
 
 * 添加插件图标
 * 更新 README 说明文档
+
+### 0.0.3
+
+* 更新 README 说明文档
+* 修复生成错误的模板

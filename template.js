@@ -72,7 +72,7 @@ const templates = {
   'vue3-less': vue3('less'),
   'vue3-ts': vue3Ts(),
   'vue3-ts-sass': vue3Ts('scss'),
-  'vue3-ts-less': vue3Ts('scss')
+  'vue3-ts-less': vue3Ts('less')
 }
 
 module.exports = templates
