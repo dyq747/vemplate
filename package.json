@@ -3,7 +3,7 @@
 	"publisher": "bbwhunter",
 	"displayName": "Vue Template File",
 	"description": "create vue template file faster",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"repository": {
 		"type" : "git",
 		"url" : "https://github.com/yuchengtian/vemplate"
