@@ -1,4 +1,4 @@
-const vue2 = params =>
+const vue2 = (params = 'scss') =>
 `<template>
   <div>
 
@@ -11,12 +11,12 @@ export default {
 }
 </script>
 
-<style ${ params ? `lang="${params}" ` : '' }scoped>
+<style lang="${params}" scoped>
 
 </style>
 `
 
-const vue3 = params =>
+const vue3 = (params = 'scss') =>
 `<template>
   <div>
 
@@ -33,12 +33,62 @@ export default {
 }
 </script>
 
-<style ${ params ? `lang="${params}" ` : '' }scoped>
+<style lang="${params}" scoped>
 
 </style>
 `
 
-const vue3Ts = params =>
+const vue3Setup = () =>
+`<template>
+  <div>
+
+  </div>
+</template>
+
+<script>
+export default {
+  setup () {
+
+
+    return {}
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>
+`
+
+const vue3Reactive = () =>
+`<template>
+  <div>
+
+  </div>
+</template>
+
+<script>
+import { reactive, toRefs } from 'vue'
+
+export default {
+  setup () {
+    const state = reactive({
+      name: 'Someone',
+    })
+  
+    return {
+      ...toRefs(state),
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>
+`
+
+const vue3Ts = (params = 'scss') =>
 `<template>
   <div>
 
@@ -57,7 +107,23 @@ export default defineComponent({
 })
 </script>
 
-<style ${ params ? `lang="${params}" ` : '' }scoped>
+<style lang="${params}" scoped>
+
+</style>
+`
+
+const vue3TsSetup = () =>
+`<template>
+  <div>
+
+  </div>
+</template>
+
+<script setup lang="ts">
+
+</script>
+
+<style lang="scss" scoped>
 
 </style>
 `
@@ -65,14 +131,15 @@ export default defineComponent({
 // 可选的模板列表
 const templates = {
   vue2: vue2(),
-  'vue2-sass': vue2('scss'),
-  'vue2-less': vue2('less'),
   vue3: vue3(),
-  'vue3-sass': vue3('scss'),
-  'vue3-less': vue3('less'),
   'vue3-ts': vue3Ts(),
-  'vue3-ts-sass': vue3Ts('scss'),
-  'vue3-ts-less': vue3Ts('less')
+  'vue3-ts-setup': vue3TsSetup(),
+  'vue3-setup': vue3Setup(),
+  'vue3-reactive': vue3Reactive(),
+  'vue2-less': vue2('less'),
+  'vue3-less': vue3('less'),
+  'vue2-stylus': vue2('stylus'),
+  'vue3-stylus': vue3('stylus'),
 }
 
 module.exports = templates

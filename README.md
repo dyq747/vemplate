@@ -1,22 +1,17 @@
 # Vemplate 使用说明
 
+![操作](./operaiton.gif)
+
 ## 功能
 
-创建 vue2、vue3 模板的 .vue 文件
+* 快速创建`vue2`、`vue3`常用模板的`vue`文件
+* 默认`css`预处理语言为`scss`
 
 ## 使用
 
 1. 右键文件夹，选择 Vemplate
 2. 输入文件名称
-3. 选择模板，按下回车键即可成功创建带有模板的 .vue 文件
-
-## Extension Settings
-
-可在 template.js 文件中编写自己的模板，文件路径如下：
-
-Windows: C:\Users\你的用户名\\.vscode\extensions\bbwhunter.vemplate-x.x.x
-
-Mac: Users/你的用户名/.vscode/extensions/bbwhunter.vemplate-x.x.x
+3. 选择模板，按下回车键即可成功创建带有模板的`vue`文件
 
 ## Release Notes
 
@@ -35,3 +30,8 @@ Vemplate Release Notes
 
 * 更新 README 说明文档
 * 修复生成错误的模板
+
+### 0.0.4
+
+* 添加操作说明动图
+* 添加更多常用模板
