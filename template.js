@@ -1,5 +1,5 @@
-const vue2 = (params = 'scss') =>
-`<template>
+const vue2 = (params = "scss") =>
+  `<template>
   <div>
 
   </div>
@@ -14,10 +14,10 @@ export default {
 <style lang="${params}" scoped>
 
 </style>
-`
+`;
 
-const vue3 = (params = 'scss') =>
-`<template>
+const vue3 = (params = "scss") =>
+  `<template>
   <div>
 
   </div>
@@ -36,32 +36,26 @@ export default {
 <style lang="${params}" scoped>
 
 </style>
-`
+`;
 
 const vue3Setup = () =>
-`<template>
+  `<template>
   <div>
 
   </div>
 </template>
 
-<script>
-export default {
-  setup () {
+<script setup>
 
-
-    return {}
-  }
-}
 </script>
 
 <style lang="scss" scoped>
 
 </style>
-`
+`;
 
 const vue3Reactive = () =>
-`<template>
+  `<template>
   <div>
 
   </div>
@@ -86,10 +80,10 @@ export default {
 <style lang="scss" scoped>
 
 </style>
-`
+`;
 
-const vue3Ts = (params = 'scss') =>
-`<template>
+const vue3Ts = (params = "scss") =>
+  `<template>
   <div>
 
   </div>
@@ -110,10 +104,10 @@ export default defineComponent({
 <style lang="${params}" scoped>
 
 </style>
-`
+`;
 
 const vue3TsSetup = () =>
-`<template>
+  `<template>
   <div>
 
   </div>
@@ -126,20 +120,20 @@ const vue3TsSetup = () =>
 <style lang="scss" scoped>
 
 </style>
-`
+`;
 
 // 可选的模板列表
 const templates = {
   vue2: vue2(),
   vue3: vue3(),
-  'vue3-ts': vue3Ts(),
-  'vue3-ts-setup': vue3TsSetup(),
-  'vue3-setup': vue3Setup(),
-  'vue3-reactive': vue3Reactive(),
-  'vue2-less': vue2('less'),
-  'vue3-less': vue3('less'),
-  'vue2-stylus': vue2('stylus'),
-  'vue3-stylus': vue3('stylus'),
-}
+  "vue3-ts": vue3Ts(),
+  "vue3-ts-setup": vue3TsSetup(),
+  "vue3-setup": vue3Setup(),
+  "vue3-reactive": vue3Reactive(),
+  "vue2-less": vue2("less"),
+  "vue3-less": vue3("less"),
+  "vue2-stylus": vue2("stylus"),
+  "vue3-stylus": vue3("stylus"),
+};
 
-module.exports = templates
+module.exports = templates;
