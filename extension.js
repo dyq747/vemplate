@@ -31,13 +31,16 @@ function activate(context) {
         });
         let path = `${args.fsPath}/${fileName}.vue`;
         while (fs.existsSync(path)) {
-          fileName += " copy";
+          fileName += ".copy";
           path = `${args.fsPath}/${fileName}.vue`;
         }
         const uri = vscode.Uri.file(path);
         await vscode.workspace.fs.writeFile(uri, new Uint8Array(0));
         await vscode.window.showTextDocument(uri);
-        await vscode.commands.executeCommand("editor.action.insertSnippet");
+        vscode.commands.executeCommand(
+          "workbench.action.populateFileFromSnippet"
+        );
+        // await vscode.commands.executeCommand("editor.action.insertSnippet");
       } catch (error) {
         new Error(error);
         return;
