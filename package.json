@@ -3,7 +3,7 @@
   "publisher": "yuchengtian",
   "displayName": "Vue Template File",
   "description": "create vue single component file with template",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/yuchengtian/vemplate"
