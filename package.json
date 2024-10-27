@@ -1,12 +1,12 @@
 {
   "name": "vemplate",
-  "publisher": "yuchengtian",
+  "publisher": "dyq747",
   "displayName": "Vue Template File",
   "description": "create vue single component file with template",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yuchengtian/vemplate"
+    "url": "https://github.com/dyq747/vemplate"
   },
   "engines": {
     "vscode": "^1.66.0"
