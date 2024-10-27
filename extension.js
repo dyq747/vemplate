@@ -2,7 +2,6 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
 const fs = require("fs");
-const templates = require("./template");
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -24,37 +23,21 @@ function activate(context) {
       // The code you place here will be executed every time your command is executed
 
       try {
-        const fileName =
-          (await vscode.window.showInputBox({
-            placeHolder: "请输入 vue 文件名称",
-          })) ?? "vemplate";
-
-        const selectedPath = args.fsPath;
-        const newFilePath = `${selectedPath}/${fileName}.vue`;
-
-        if (fs.existsSync(newFilePath)) {
-          vscode.window.showErrorMessage(`该目录下已存在 ${fileName}.vue 文件`);
-          return;
+        let fileName = await vscode.window.showInputBox({
+          placeHolder: "请输入 Vue 文件名称",
+          value: "TheComponent",
+          prompt: "建议以 PascalCase 格式来命名",
+          ignoreFocusOut: true,
+        });
+        let path = `${args.fsPath}/${fileName}.vue`;
+        while (fs.existsSync(path)) {
+          fileName += " copy";
+          path = `${args.fsPath}/${fileName}.vue`;
         }
-
-        const templateName = await vscode.window.showQuickPick(
-          Object.keys(templates),
-          {
-            canPickMany: false,
-            placeHolder: "请选择 vue 模板",
-          }
-        );
-
-        if (!fs.existsSync(newFilePath)) {
-          fs.writeFileSync(newFilePath, templates[templateName]);
-          let doc = await vscode.workspace.openTextDocument(
-            vscode.Uri.file(newFilePath)
-          );
-          await vscode.window.showTextDocument(doc);
-        } else {
-          vscode.window.showErrorMessage(`该目录下已存在 ${fileName}.vue 文件`);
-          return;
-        }
+        const uri = vscode.Uri.file(path);
+        await vscode.workspace.fs.writeFile(uri, new Uint8Array(0));
+        await vscode.window.showTextDocument(uri);
+        await vscode.commands.executeCommand("editor.action.insertSnippet");
       } catch (error) {
         new Error(error);
         return;
