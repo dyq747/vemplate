@@ -1,6 +1,6 @@
 # Vemplate 使用说明
 
-![操作](./operaiton.gif)
+![操作](./vemplate.gif)
 
 ## 功能
 
@@ -11,7 +11,7 @@
 
 1. 右键文件夹，选择 Vemplate
 2. 输入文件名称
-3. 选择`Snippets`模板，按下回车键即可成功创建带有模板的`vue`文件
+3. 选择`snippet`文件模板，按下回车键即可成功创建带有模板的`vue`文件
 
 ## 自定义模板
 
@@ -20,10 +20,15 @@ Vemplate 新建文件是通过 Snippets 插入模板内容的，因此可以自�
 1. 按下`Ctrl`+`Shift`+`p`
 2. 搜索`Snippets`，选择`Snippets: Configure Snippets`
 3. 选择`New Glogal Snippets file`，即可编写自定义模板
+4. 使用 [snippet-generator](https://snippet-generator.app/?description=&tabtrigger=&snippet=&mode=vscode) 快速生成`snippet`，记得设置`isFileTemplate: true`
 
 ## Release Notes
 
 Vemplate Release Notes
+
+### １.１.１
+
+- 更新说明文档
 
 ### 1.0.0
 
