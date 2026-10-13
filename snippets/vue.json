@@ -5,7 +5,7 @@
     "body": [
       "<template>",
       "  <div>",
-      "  $1",
+      "    $1",
       "  </div>",
       "</template>",
       "",
@@ -17,33 +17,7 @@
       "",
       "</style>"
     ],
-    "description": "Vue3 组合式 API"
-  },
-  "Vue3 setup with reactive": {
-    "isFileTemplate": true,
-    "prefix": "v3-setup-reactive",
-    "body": [
-      "<template>",
-      "  <div>",
-      "  $1",
-      "  </div>",
-      "</template>",
-      "",
-      "<script setup>",
-      "import { reactive, toRefs } from 'vue'",
-      "",
-      "const state = reactive({",
-      "  name: 'Someone',",
-      "})",
-      "",
-      "const { name } = toRefs(state)",
-      "</script>",
-      "",
-      "<style scoped>",
-      "",
-      "</style>"
-    ],
-    "description": "Vue3 组合式响应式 API"
+    "description": "Vue3 · 组合式 API（默认模板）"
   },
   "Vue3 setup with typescript": {
     "isFileTemplate": true,
@@ -51,7 +25,7 @@
     "body": [
       "<template>",
       "  <div>",
-      "  $1",
+      "    $1",
       "  </div>",
       "</template>",
       "",
@@ -63,15 +37,55 @@
       "",
       "</style>"
     ],
-    "description": "TypeScript 与组合式 API"
+    "description": "Vue3 · 组合式 API + TypeScript"
   },
-  "Vue3 Sass": {
+  "Vue3 setup with scss": {
     "isFileTemplate": true,
-    "prefix": "v3-Sass",
+    "prefix": "v3-scss",
     "body": [
       "<template>",
       "  <div>",
-      "  $1",
+      "    $1",
+      "  </div>",
+      "</template>",
+      "",
+      "<script setup>",
+      "",
+      "</script>",
+      "",
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Vue3 · 组合式 API + SCSS"
+  },
+  "Vue3 setup with typescript and scss": {
+    "isFileTemplate": true,
+    "prefix": "v3-ts-scss",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    $1",
+      "  </div>",
+      "</template>",
+      "",
+      "<script setup lang=\"ts\">",
+      "",
+      "</script>",
+      "",
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Vue3 · 组合式 API + TypeScript + SCSS"
+  },
+  "Vue3 setup with sass": {
+    "isFileTemplate": true,
+    "prefix": "v3-sass",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    $1",
       "  </div>",
       "</template>",
       "",
@@ -83,72 +97,170 @@
       "",
       "</style>"
     ],
-    "description": "Vue3 Sass"
+    "description": "Vue3 · 组合式 API + Sass"
   },
-  "Vue2 css": {
+  "Vue3 setup with less": {
     "isFileTemplate": true,
-    "prefix": "v2-css",
+    "prefix": "v3-less",
     "body": [
       "<template>",
       "  <div>",
-      "",
+      "    $1",
       "  </div>",
       "</template>",
       "",
-      "<script>",
-      "  export default {",
-      "    ",
-      "  }",
-      "</script>",
+      "<script setup>",
       "",
-      "<style lang=\"sass\" scoped>",
-      "",
-      "</style>"
-    ],
-    "description": "Vue2 css"
-  },
-  "Vue2 sass": {
-    "isFileTemplate": true,
-    "prefix": "v2-sass",
-    "body": [
-      "<template>",
-      "  <div>",
-      "",
-      "  </div>",
-      "</template>",
-      "",
-      "<script>",
-      "  export default {",
-      "    ",
-      "  }",
-      "</script>",
-      "",
-      "<style lang=\"sass\" scoped>",
-      "",
-      "</style>"
-    ],
-    "description": "Vue2 sass"
-  },
-  "Vue2 Less": {
-    "isFileTemplate": true,
-    "prefix": "v2-less",
-    "body": [
-      "<template>",
-      "  <div>",
-      "",
-      "  </div>",
-      "</template>",
-      "",
-      "<script>",
-      "  export default {",
-      "    ",
-      "  }",
       "</script>",
       "",
       "<style lang=\"less\" scoped>",
       "",
       "</style>"
     ],
-    "description": "Vue2 Less"
+    "description": "Vue3 · 组合式 API + Less"
+  },
+  "Vue3 setup with reactive": {
+    "isFileTemplate": true,
+    "prefix": "v3-setup-reactive",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    {{ state.name }}",
+      "    $1",
+      "  </div>",
+      "</template>",
+      "",
+      "<script setup>",
+      "import { reactive } from 'vue'",
+      "",
+      "const state = reactive({",
+      "  name: 'Someone',",
+      "})",
+      "</script>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Vue3 · 组合式 API + reactive 状态"
+  },
+  "Vue3 setup with props and emits": {
+    "isFileTemplate": true,
+    "prefix": "v3-ts-props",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    {{ title }}",
+      "    $1",
+      "  </div>",
+      "</template>",
+      "",
+      "<script setup lang=\"ts\">",
+      "interface Props {",
+      "  title?: string",
+      "}",
+      "",
+      "withDefaults(defineProps<Props>(), {",
+      "  title: '',",
+      "})",
+      "",
+      "const emit = defineEmits<{",
+      "  change: [value: string]",
+      "}>()",
+      "</script>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Vue3 · 组合式 API + defineProps / defineEmits"
+  },
+  "Vue2 with scoped css": {
+    "isFileTemplate": true,
+    "prefix": "v2-css",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    $1",
+      "  </div>",
+      "</template>",
+      "",
+      "<script>",
+      "export default {",
+      "  $2",
+      "}",
+      "</script>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Vue2 · 选项式 API + CSS"
+  },
+  "Vue2 with scss": {
+    "isFileTemplate": true,
+    "prefix": "v2-scss",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    $1",
+      "  </div>",
+      "</template>",
+      "",
+      "<script>",
+      "export default {",
+      "  $2",
+      "}",
+      "</script>",
+      "",
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Vue2 · 选项式 API + SCSS"
+  },
+  "Vue2 with sass": {
+    "isFileTemplate": true,
+    "prefix": "v2-sass",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    $1",
+      "  </div>",
+      "</template>",
+      "",
+      "<script>",
+      "export default {",
+      "  $2",
+      "}",
+      "</script>",
+      "",
+      "<style lang=\"sass\" scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Vue2 · 选项式 API + Sass"
+  },
+  "Vue2 with less": {
+    "isFileTemplate": true,
+    "prefix": "v2-less",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    $1",
+      "  </div>",
+      "</template>",
+      "",
+      "<script>",
+      "export default {",
+      "  $2",
+      "}",
+      "</script>",
+      "",
+      "<style lang=\"less\" scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Vue2 · 选项式 API + Less"
   }
 }

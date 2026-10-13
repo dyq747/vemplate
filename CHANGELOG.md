@@ -1,9 +1,58 @@
-# Change Log
+# 更新日志
 
-All notable changes to the "vemplate" extension will be documented in this file.
+本文记录 Vemplate 的重要变更。
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [1.2.0]
 
-## [Unreleased]
+### 新增
 
-- Initial release
+- 内置 Vue 2、Vue 3 模板，提供 CSS、SCSS、Sass、Less 和 TypeScript 组合。
+- 增加片段搜索、来源标注、可选的侧边预览，并将上次使用的片段置顶。
+- 从命令面板运行 Vemplate 时，增加目标文件夹选择器。
+- 增加 `Vemplate` 输出通道，用于查看片段发现与解析诊断信息。
+- 增加自定义片段目录、扩展片段和片段预览设置。
+
+### 变更
+
+- 将扩展实现迁移至 TypeScript，并保留原有片段工作流与设置。
+- 汇集内置预设、工作区片段、用户片段、自定义目录及其它扩展贡献的片段。
+- 仅列出明确支持 Vue 的片段；按上次使用情况、来源优先级和文件模板状态排序。
+- 调整片段列表：第一行显示前缀和来源，第二行显示说明。
+- 支持片段文件中的 JSONC 注释、尾随逗号和 UTF-8 BOM。
+
+### 修复
+
+- 取消输入文件名或选择片段时，不再创建 `undefined.vue` 或空文件。
+- 校验文件名、自动添加 `.vue` 后缀；遇到重名时生成 `Foo.copy.vue` 等可用名称。
+- 修复 Vue 2 CSS 预设误用 Sass 语言的问题，并补齐内置模板中的占位符。
+- 显示片段文件读取和解析失败信息，不再静默跳过问题文件。
+- 写入或插入片段内容失败时清理已创建的文件，避免留下不完整文件。
+
+## [1.1.1]
+
+- 更新使用说明文档。
+
+## [1.0.0]
+
+- 支持通过 Snippet 自定义模板。
+- 增加常用模板。
+- 修复 `undefined` 文件名和重名文件处理问题。
+
+## [0.0.4]
+
+- 增加操作演示动图。
+- 增加更多常用模板。
+
+## [0.0.3]
+
+- 更新 README。
+- 修复模板生成错误。
+
+## [0.0.2]
+
+- 增加扩展图标。
+- 更新 README。
+
+## [0.0.1]
+
+- Vemplate 首次发布。
